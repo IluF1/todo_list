@@ -1,0 +1,66 @@
+.element {
+    width: 900px;
+    display: block;
+    margin-left: auto ;
+    background-color: rgb(48, 48, 48);
+    height: 200px;
+    border-radius: 10px;
+    margin-right: auto;
+    padding: 20px 30px 0 30px;
+    margin-bottom: 30px;
+}
+.container {
+    margin-top: 50px;
+}
+.description {
+    margin-top: 30px;
+    color: rgb(179, 179, 179);
+}
+
+.title {
+    font-size: 29px;
+}
+.button_list, .elem_one, .elem_two, .elem_three{
+    display: inline-block;
+    margin-left: 40px;
+    color: white;
+    padding-top: 100px;
+}
+
+.img_one, .img_two, .img_three {
+    color: rgb(180, 180, 180);
+    transition: 0.3s ease-in-out;
+}
+.img_three:hover {
+    color: rgb(4, 255, 0);
+}
+.img_two:hover {
+    color: red;
+}
+.img_one:hover {
+    color: blueviolet;
+}
+.completed_list {
+    margin-top: 30px;
+}
+.completed_element {
+    width: 900px;
+    display: block;
+    margin-left: auto ;
+    background-color: rgb(27, 27, 27);
+    height: 200px;
+    border-radius: 10px;
+    margin-right: auto;
+    padding: 20px 30px 0 30px;
+    margin-bottom: 30px;
+}
+
+.completed_description {
+    margin-top: 30px;
+    color: rgb(118, 118, 118);
+    text-decoration: line-through;
+}
+.completed_title {
+    font-size: 29px;
+    text-decoration: line-through;
+}
