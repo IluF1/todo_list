@@ -1,19 +1,30 @@
 import { FC } from "react";
 import "./input.css";
-import { ChangeEventHandler } from 'react'
+import { ChangeEventHandler } from "react";
 
-type inputStyles = 'default' | 'description'
+type inputStyles = "default" | "description";
 
 interface IInputProps {
-  placeholder: string,
-  style: inputStyles,
-  value ?: string,
-  onChange ?: ChangeEventHandler,
-  name ?: string,
-  ref ?: string
+  placeholder: string;
+  style: inputStyles;
+  value?: string;
+  onChange?: ChangeEventHandler;
+  name?: string;
+  ref?: string;
+  length ?: number;
+
 }
 
-export const Input: FC<IInputProps> = ({ style, name, ref, onChange, value, placeholder, ...props }) => {
+export const Input: FC<IInputProps> = ({
+  style,
+  name,
+  length,
+  ref,
+  onChange,
+  value,
+  placeholder,
+  ...props
+}) => {
   const rootClasses = ["my-input"];
 
   if (style == "default") {
@@ -32,6 +43,8 @@ export const Input: FC<IInputProps> = ({ style, name, ref, onChange, value, plac
       onChange={onChange}
       name={name}
       ref={ref}
+      maxLength={length}
+    
     />
   );
 };

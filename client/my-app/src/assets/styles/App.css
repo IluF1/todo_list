@@ -15,17 +15,23 @@
 .description {
     margin-top: 30px;
     color: rgb(179, 179, 179);
+    max-width: 500px;
+    word-wrap: break-word;
 }
 
 .title {
     font-size: 29px;
+    word-wrap: break-word;
 }
 .button_list, .elem_one, .elem_two, .elem_three{
-    display: inline-block;
-    margin-left: 40px;
     color: white;
-    padding-top: 100px;
+    padding-top: 30px;
+
+    display: block;
+    float: right;
+    width: 50px;
 }
+
 
 .img_one, .img_two, .img_three {
     color: rgb(180, 180, 180);
@@ -59,8 +65,27 @@
     margin-top: 30px;
     color: rgb(118, 118, 118);
     text-decoration: line-through;
+    word-wrap: break-word;
 }
 .completed_title {
     font-size: 29px;
     text-decoration: line-through;
+    word-wrap: break-word;
+}
+.button_list_completed, .elem_one_completed, .elem_two_completed {
+    display: inline-block;
+    margin-left: 20px;
+    
+    padding-top: 50px;
+}
+.img_one_completed, .img_two_completed {
+    color: rgb(180, 180, 180);
+    transition: 0.3s ease-in-out;
+}
+.img_two_completed:hover {
+    color: red;
+}
+
+.list {
+    margin-top: 30px;
 }

@@ -5,10 +5,12 @@ import { AiFillDelete } from "react-icons/ai";
 import todoStore from "./components/stores/todo-store";
 import CreateTask from "./pages/create_task/create_task";
 import { AiOutlineCheck } from "react-icons/ai";
+import { MdClose } from "react-icons/md";
 
 const App = observer(() => {
   return (
     <div className="container">
+      <CreateTask />
       <ul className="list">
         {todoStore.todo.todos.map((task) => (
           <li className="element" key={task.id}>
@@ -46,17 +48,31 @@ const App = observer(() => {
           </li>
         ))}
       </ul>
-
-      <CreateTask />
-
       <ul className="completed_list">
         {todoStore.todo.completedTodos.map((task) => (
           <li key={task.id} className="completed_element">
             <h1 className="completed_title">{task.title}</h1>
             <p className="completed_description">{task.description}</p>
+            <ul className="buttons_list_completed">
+              <li className="elem_one_completed">
+                <button>
+                  <MdCreate className="img_one_completed" />
+                </button>
+              </li>
+              <li className="elem_two_completed">
+                <button onClick={() => {todoStore.notCompletedTodo(task.title, task.description, task.id)}}>
+                  <MdClose className="img_two_completed" />
+                </button>
+              </li>
+            </ul>
+            
           </li>
         ))}
       </ul>
+
+      
+
+      
     </div>
   );
 });

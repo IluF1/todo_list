@@ -10,12 +10,13 @@ interface IButtonProps {
     style: buttonStyles,
     children: string,
     center ?: boolean,
-    onClick ?: MouseEventHandler
+    onClick ?: MouseEventHandler,
+    disabled ?: boolean
 }
 
 
 
-export const Button: FC<IButtonProps> = ({ children, onClick,  center, style, big, ...props }) => {
+export const Button: FC<IButtonProps> = ({ children,disabled, onClick,  center, style, big, ...props }) => {
 
     const rootClasses = ['my-button'];
 
@@ -32,7 +33,7 @@ export const Button: FC<IButtonProps> = ({ children, onClick,  center, style, bi
     }
 
     return (
-        <button type="submit" {...props} onClick={onClick} className={rootClasses.join(' ')}>
+        <button type="submit" disabled={disabled} {...props} onClick={onClick} className={rootClasses.join(' ')}>
             {children}
         </button>
     );

@@ -42,6 +42,16 @@ class Todo {
       completed: true
     })
   }
+  
+  notCompletedTask = (title: string, description: string, id: number) => {
+    this.completedTodos = this.completedTodos.filter((todo) => todo.id !== id);
+    this.todos.push({
+      title,
+      description,
+      id: Math.random(),
+      completed: true
+    })
+  }
 }
 
 class TodoStore {
@@ -58,6 +68,7 @@ class TodoStore {
 
   addTodo = (title: string, description: string) => {
     this.todo.addTodo(title, description);
+
   };
 
   removeTodo = (id: number) => {
@@ -67,8 +78,13 @@ class TodoStore {
   completedTodo = (title: string, description: string, id: number) => {
     this.todo.completedTodo(title, description, id)
   }
+
+  notCompletedTodo = (title: string, description: string, id: number) => {
+    this.todo.notCompletedTask(title, description, id)
+  }
 }
 
 const todoStore = new TodoStore();
 
 export default todoStore;
+
