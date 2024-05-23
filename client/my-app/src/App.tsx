@@ -6,6 +6,7 @@ import todoStore from "./components/stores/todo-store";
 import CreateTask from "./pages/create_task/create_task";
 import { AiOutlineCheck } from "react-icons/ai";
 import { MdClose } from "react-icons/md";
+import { data } from "./api/api";
 
 const App = observer(() => {
   return (
@@ -19,6 +20,7 @@ const App = observer(() => {
             </div>
             <div className="description_block">
               <p className="description">{task.description}</p>
+              <p className="date">{task.date}</p>
             </div>
             <ul className="buttons_list">
               <li className="elem_one">
@@ -53,6 +55,7 @@ const App = observer(() => {
           <li key={task.id} className="completed_element">
             <h1 className="completed_title">{task.title}</h1>
             <p className="completed_description">{task.description}</p>
+            <p className="date">{task.date}</p>
             <ul className="buttons_list_completed">
               <li className="elem_one_completed">
                 <button>
@@ -65,7 +68,7 @@ const App = observer(() => {
                 </button>
               </li>
             </ul>
-            
+            {/* <h1>{data}</h1> */}
           </li>
         ))}
       </ul>

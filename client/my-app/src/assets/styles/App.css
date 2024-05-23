@@ -17,6 +17,7 @@
     color: rgb(179, 179, 179);
     max-width: 500px;
     word-wrap: break-word;
+    font-size: 13px;
 }
 
 .title {
@@ -66,17 +67,20 @@
     color: rgb(118, 118, 118);
     text-decoration: line-through;
     word-wrap: break-word;
+    font-size: 13px;
 }
 .completed_title {
     font-size: 29px;
     text-decoration: line-through;
     word-wrap: break-word;
 }
-.button_list_completed, .elem_one_completed, .elem_two_completed {
-    display: inline-block;
-    margin-left: 20px;
-    
-    padding-top: 50px;
+.button_list_completed, .d, .elem_two_completed {
+    color: white;
+    padding-top: -20px;
+
+    display: block;
+    float: right;
+    width: 50px;
 }
 .img_one_completed, .img_two_completed {
     color: rgb(180, 180, 180);
@@ -88,4 +92,9 @@
 
 .list {
     margin-top: 30px;
+}
+.date {
+    color: rgb(124, 124, 124);
+    font-size: 12px;
+    margin-top: 50px;
 }
