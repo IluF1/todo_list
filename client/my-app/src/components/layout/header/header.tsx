@@ -1,4 +1,4 @@
-import styles from "./header.module.css";
+import styles from "./header.module.scss";
 import { FaTasks } from "react-icons/fa";
 import { BiUserCircle } from "react-icons/bi";
 
@@ -22,6 +22,9 @@ export const Header = () => {
               <FaTasks className={styles.img_one} />
               Все задачи
             </a>
+          </li>
+          <li>
+            <a href="/create_task">Создать задачу</a>
           </li>
           <li className={styles.elem_three}>
             <a

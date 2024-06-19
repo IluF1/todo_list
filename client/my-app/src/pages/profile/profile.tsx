@@ -1,7 +1,5 @@
-import styles from './profile.module.css'
+import styles from "./profile.module.scss";
 
 export default function Profile() {
-    return <div className = {styles['container']}>
-
-    </div>
+  return <div className={styles["container"]}></div>;
 }

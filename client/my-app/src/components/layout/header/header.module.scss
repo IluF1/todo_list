@@ -1,0 +1,27 @@
+.list  {
+   padding-top: 25px;
+    li {
+        display: inline;
+        margin-left: 50px;
+        margin-top: 30px
+    }
+  
+}
+
+.container {
+    background-color: rgb(19, 19, 19);
+    width: 90%;
+    height: 80px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+
+.img_one, .img_two, .img_three {
+    margin-left: -25px;
+    margin-top: 3px;
+    position: absolute;
+}
