@@ -21,7 +21,7 @@ export const AuthSlice = createSlice({
   reducers: {
     auth: (state, action: PayloadAction<IUser>) => {
       if (
-        action.payload.email === 'test@test' &&
+        action.payload.email === 'test@test.com' &&
         action.payload.password === '12345'
       ) {
         state.isAuth = true;

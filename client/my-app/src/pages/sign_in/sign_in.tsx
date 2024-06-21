@@ -1,76 +1,63 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import { useAppDispatch, useAppSelector } from '../../components/store/hooks'
-import { auth } from '../../components/store/reducers/auth.slice'
+import { ChangeEvent } from 'react'
 import { Button } from '../../components/ui/button/button'
 import { Input } from '../../components/ui/input/input'
+import { useValidation } from '../../utils/hooks/useValidation'
 import styles from './sign_in.module.scss'
 
 export default function Sign_in() {
-	const [email, setEmail] = useState('')
-	const [password, setPassword] = useState('')
-	const [success, setSuccess] = useState(false)
-	const dispatch = useAppDispatch()
-	const error = useAppSelector(state => state.authSlice.error)
-
-	useEffect(() => {
-		if (error) {
-			toast.warn(error)
-		}
-	}, [error])
-
-	const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-		setEmail(e.target.value)
-	}
-
-	const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
-		setPassword(e.target.value)
-	}
-
-	const handleSubmit = (e: FormEvent) => {
-		e.preventDefault()
-		dispatch(auth({ email, password }))
-	}
-
+	const {
+		handleChangeEmail,
+		handleChangePassword,
+		handleSubmit,
+		emailDirty,
+		passwordDirty,
+		isEmailError,
+		isPasswordError,
+		formValid,
+		email,
+		dataError,
+		password,
+		blurHandler,
+	} = useValidation()
 	return (
 		<div className={styles.container}>
-			<ToastContainer
-				position='top-center'
-				theme='dark'
-				autoClose={5000}
-				hideProgressBar={false}
-				newestOnTop={false}
-				closeOnClick
-				rtl={false}
-				pauseOnFocusLoss
-				draggable
-				pauseOnHover
-			/>
-			{success ? toast.success('Вы успешно вошли в аккаунт') : null}
-			<form onSubmit={handleSubmit} className={styles.form}>
+			<form className={styles.form} onSubmit={handleSubmit}>
 				<h1 className={styles.text}>Войдите в ваш аккаунт</h1>
 				<div className={styles.input_one}>
+					{isEmailError && emailDirty && (
+						<div className={styles.error}>{isEmailError}</div>
+					)}
 					<Input
 						placeholder='Введите ваш email...'
-						value={email}
-						onChange={handleEmailChange}
 						style='default'
+						name='email'
+						value={email}
+						onChange={(e: ChangeEvent<HTMLInputElement>) =>
+							handleChangeEmail(e)
+						}
+						onBlur={(e: ChangeEvent<HTMLInputElement>) => blurHandler(e)}
 					/>
 				</div>
 				<div className={styles.input_two}>
+					{isPasswordError && passwordDirty && (
+						<div className={styles.error}>{isPasswordError}</div>
+					)}
 					<Input
 						placeholder='Введите пароль...'
-						value={password}
-						onChange={handlePasswordChange}
 						style='default'
+						onChange={(e: ChangeEvent<HTMLInputElement>) =>
+							handleChangePassword(e)
+						}
+						name='password'
+						value={password}
+						onBlur={(e: ChangeEvent<HTMLInputElement>) => blurHandler(e)}
 					/>
 				</div>
-				<a href='/'>
-					<Button style='default' center >
-						Войти
-					</Button>
-				</a>
+
+				{<div className={styles.error} style={{marginTop: '20px'}}>{dataError}</div>}
+				<Button style='default' center disabled={!formValid}>
+					Войти
+				</Button>
 			</form>
 		</div>
 	)

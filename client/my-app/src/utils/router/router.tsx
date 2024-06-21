@@ -16,7 +16,7 @@ const ProtectedRoute: FC<ProtectedRouteProps> = ({ children }) => {
 
 	if (!isAuth) {
 		return <Navigate to='/sign_in' />
-	}
+	} 
 
 	return <>{children}</>
 }

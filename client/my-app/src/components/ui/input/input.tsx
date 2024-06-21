@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, FocusEventHandler } from "react";
 import "./input.scss";
 import { ChangeEventHandler } from "react";
 
@@ -12,7 +12,7 @@ interface IInputProps {
   name?: string;
   ref?: string;
   length ?: number;
-
+  onBlur ?: FocusEventHandler<HTMLInputElement>
 }
 
 export const Input: FC<IInputProps> = ({
@@ -23,6 +23,7 @@ export const Input: FC<IInputProps> = ({
   onChange,
   value,
   placeholder,
+  onBlur,
   ...props
 }) => {
   const rootClasses = ["my-input"];
@@ -44,7 +45,7 @@ export const Input: FC<IInputProps> = ({
       name={name}
       ref={ref}
       maxLength={length}
-    
+      onBlur={onBlur}
     />
   );
 };
