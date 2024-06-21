@@ -2,20 +2,23 @@
     background-color: rgb(119, 0, 255);
     color: white;
     border: none;
-    width: 250px;
+    width: 150px;
     margin-top: 30px;
-    height: 37px;
+    height: 33px;
     outline: none;
     cursor: pointer;
     border-radius: 7px;
     transition: 0.3s ease-in-out;
     text-transform: uppercase;
     font-weight: 600;
+    font-size: 15px;
+
+    &:hover {
+        background-color: rgb(84, 1, 166);
+    }
 }
 
-.default-button:hover {
-    background-color: rgb(84, 1, 166);
-}
+
 .center-button {
     margin: 0 auto;
     margin-top: 50px;

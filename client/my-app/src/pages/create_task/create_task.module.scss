@@ -1,17 +1,12 @@
 .container {
-    margin-top: 50px;
-    justify-content: center;
+    padding-top: 50px;
     display: flex;
+    justify-content: center;
 }
 
-.error {
-    color: rgb(201, 0, 0);
-    font-size: 14px;
-    margin-top: 10px;
-}
 
-.counterLength {
-    color: rgb(132, 132, 132);
-    font-size: 12px;
-    margin-top: 3px;
+.button {
+    float: right;
+    margin-top: -25px;
+    margin-left: 20px;
 }

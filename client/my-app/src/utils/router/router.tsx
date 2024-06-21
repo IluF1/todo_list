@@ -1,29 +1,57 @@
-import Profile from "../../pages/profile/profile";
-import { App } from "../../App";
-import Sign_in from "../../pages/sign_in/sign_in";
-import Sign_up from "../../pages/sign_up/sign_up";
-import { createBrowserRouter } from "react-router-dom";
-import { CreateTask } from "../../pages/create_task/create_task";
+import { FC, ReactNode } from 'react'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
+import { App } from '../../App'
+import { useAppSelector } from '../../components/store/hooks'
+import { CreateTask } from '../../pages/create_task/create_task'
+import Profile from '../../pages/profile/profile'
+import Sign_in from '../../pages/sign_in/sign_in'
+import Sign_up from '../../pages/sign_up/sign_up'
+
+interface ProtectedRouteProps {
+	children: ReactNode
+}
+
+const ProtectedRoute: FC<ProtectedRouteProps> = ({ children }) => {
+	const isAuth = useAppSelector(state => state.authSlice.isAuth)
+
+	if (!isAuth) {
+		return <Navigate to='/sign_in' />
+	}
+
+	return <>{children}</>
+}
 
 export const Router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "/profile",
-    element: <Profile />,
-  },
-  {
-    path: "/create_task",
-    element: <CreateTask />,
-  },
-  {
-    path: "/sign_in",
-    element: <Sign_in />,
-  },
-  {
-    path: "/sign_up",
-    element: <Sign_up />,
-  },
-]);
+	{
+		path: '/',
+		element: (
+			<ProtectedRoute>
+				<App />
+			</ProtectedRoute>
+		),
+	},
+	{
+		path: '/profile',
+		element: (
+			<ProtectedRoute>
+				<Profile />
+			</ProtectedRoute>
+		),
+	},
+	{
+		path: '/create_task',
+		element: (
+			<ProtectedRoute>
+				<CreateTask />
+			</ProtectedRoute>
+		),
+	},
+	{
+		path: '/sign_in',
+		element: <Sign_in />,
+	},
+	{
+		path: '/sign_up',
+		element: <Sign_up />,
+	},
+])

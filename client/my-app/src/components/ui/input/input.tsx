@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "./input.css";
+import "./input.scss";
 import { ChangeEventHandler } from "react";
 
 type inputStyles = "default" | "description";
@@ -35,7 +35,7 @@ export const Input: FC<IInputProps> = ({
   }
 
   return (
-    <textarea
+    <input
       {...props}
       placeholder={placeholder}
       className={rootClasses.join(" ")}

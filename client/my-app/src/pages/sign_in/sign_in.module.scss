@@ -1,7 +1,21 @@
+@mixin top() {
+	margin-top: 10px;
+}
+
 .container {
-  display: block;
-  margin-left: 0 auto;
-  margin-right: 0 auto;
-  text-align: center;
-  align-items: center;
-} 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 90vh;
+}
+
+.text {
+  margin-bottom: 50px
+}
+.input_one {
+	@include top();
+}
+.input_two {
+	@include top();
+}
