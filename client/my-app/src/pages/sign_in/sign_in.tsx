@@ -54,7 +54,11 @@ export default function Sign_in() {
 					/>
 				</div>
 
-				{<div className={styles.error} style={{marginTop: '20px'}}>{dataError}</div>}
+				{
+					<div className={styles.error} style={{ marginTop: '20px' }}>
+						{dataError}
+					</div>
+				}
 				<Button style='default' center disabled={!formValid}>
 					Войти
 				</Button>

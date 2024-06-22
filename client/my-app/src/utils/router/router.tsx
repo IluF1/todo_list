@@ -1,25 +1,35 @@
-import { FC, ReactNode } from 'react'
-import { createBrowserRouter, Navigate } from 'react-router-dom'
-import { App } from '../../App'
-import { useAppSelector } from '../../components/store/hooks'
-import { CreateTask } from '../../pages/create_task/create_task'
-import Profile from '../../pages/profile/profile'
-import Sign_in from '../../pages/sign_in/sign_in'
-import Sign_up from '../../pages/sign_up/sign_up'
+import { FC, ReactNode } from 'react';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { App } from '../../App';
+import { useAppSelector } from '../../components/store/hooks';
+import { CreateTask } from '../../pages/create_task/create_task';
+import Profile from '../../pages/profile/profile';
+import Sign_in from '../../pages/sign_in/sign_in';
+import Sign_up from '../../pages/sign_up/sign_up';
 
 interface ProtectedRouteProps {
-	children: ReactNode
+	children: ReactNode;
 }
 
 const ProtectedRoute: FC<ProtectedRouteProps> = ({ children }) => {
-	const isAuth = useAppSelector(state => state.authSlice.isAuth)
+	const isAuth = useAppSelector(state => state.authSlice.isAuth);
 
 	if (!isAuth) {
-		return <Navigate to='/sign_in' />
-	} 
+		return <Navigate to="/sign_in" />;
+	}
 
-	return <>{children}</>
-}
+	return <>{children}</>;
+};
+
+const Redirect: FC<ProtectedRouteProps> = ({ children }) => {
+	const isAuth = useAppSelector(state => state.authSlice.isAuth);
+
+	if (isAuth) {
+		return <Navigate to="/" />;
+	}
+
+	return <>{children}</>;
+};
 
 export const Router = createBrowserRouter([
 	{
@@ -48,10 +58,18 @@ export const Router = createBrowserRouter([
 	},
 	{
 		path: '/sign_in',
-		element: <Sign_in />,
+		element: (
+			<Redirect>
+				<Sign_in />
+			</Redirect>
+		),
 	},
 	{
 		path: '/sign_up',
-		element: <Sign_up />,
+		element: (
+			<Redirect>
+				<Sign_up />
+			</Redirect>
+		),
 	},
-])
+]);

@@ -12,8 +12,8 @@ export const HeaderElement: FC<IHeaderElementProps> = ({
 	className,
 	...props
 }) => {
-	const default_color = '#ffffff'
-	const active_color = '#a200ff'
+	const default_color = '#333333 '
+	const active_color = 'rgb(0, 217, 255)'
 	return (
 		<a
 			href={path}

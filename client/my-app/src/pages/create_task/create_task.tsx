@@ -14,11 +14,11 @@ export const CreateTask = () => {
 		dispatch(
 			TodoSlice.actions.addTodo({
 				name: todoName,
-				id: Date.now(), 
+				id: Date.now(),
 				isSuccess: false,
 			})
 		)
-		setTodoName('') 
+		setTodoName('')
 	}
 
 	return (

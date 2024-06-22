@@ -9,19 +9,24 @@
 }
 
 .container {
-    background-color: rgb(19, 19, 19);
+    background-color: #f0f0f0;
     width: 90%;
     height: 80px;
     display: block;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 20px;
+    margin-top: 10px;
     border-radius: 20px;
+    box-shadow: 
+		20px 20px 20px rgba(0, 0, 0, 0.106),
+		20px 20px 20px rgba(0, 0, 0, 0.106),
+		20px 20px 20px rgba(0, 0, 0, 0.106),
+		20px 20px 20px rgba(0, 0, 0, 0.106);
 }
 
 
 .img_one, .img_two, .img_three {
     margin-left: -25px;
-    margin-top: 3px;
+    margin-top: 1px;
     position: absolute;
 }
